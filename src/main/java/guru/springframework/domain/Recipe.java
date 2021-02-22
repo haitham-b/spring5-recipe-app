@@ -4,6 +4,7 @@ package guru.springframework.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,6 +27,9 @@ public class Recipe {
     private String url;
 
     private String directions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredient;
 
 //    private Difficulty diffuciculty;
 
